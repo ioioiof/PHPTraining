@@ -1,4 +1,4 @@
 <?php
-    $a = "WOOOO";
+    $a = "woooooo";
     echo $a;
 ?>
