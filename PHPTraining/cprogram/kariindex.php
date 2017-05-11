@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8" http-equiv="refresh" content="45">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>掲示板</title>
 </head>
 <body>
