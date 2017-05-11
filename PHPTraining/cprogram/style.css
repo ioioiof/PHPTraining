@@ -1,0 +1,7 @@
+body:background-color    {#f5f5dc;}
+#main{
+    height:800px;
+    width:1000px;
+    overflow-y:scroll;
+    margin:0 auto;
+}
