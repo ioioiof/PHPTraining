@@ -17,6 +17,13 @@ if(isset($_SESSION["name"])){
 </head>
 <body>
     <h1>ガバガバ掲示板プログラムくん</h1>
+    <form action="" method="post">
+        <?php
+            print '<input type="text" name="hname" size="15" placeholder="ハンドルネーム" value="'.$name.'" maxlength="6">'
+        ?>
+        <input type="text" name="nai" size="50" placeholder="内容" maxlength="300">
+        <input type="submit" value="送信">
+    </form>
     <?php
         date_default_timezone_set('Asia/Tokyo');
         $file_path = "dbb.csv";
@@ -61,13 +68,9 @@ if(isset($_SESSION["name"])){
         }
 
         if(($han = fopen($file_path,"r")) !== false){
-            echo "<div style='height:800px; width:1000px; overflow-y:scroll;'><table border='1'>\n";
+            echo '<div id="main"><table border="1">';
             while (($data = fgetcsv($han,1000,",")) !== false) {
-                if(strpos($data[3],"http:") !== false || strpos($data[3],"https:") !== false){
-                    $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
-                    $replace_http = '<a href="\1" target="_blank">\1</a>';
-                    $data[3] = preg_replace( $pattern_http, $replace_http,$data[3]);
-                }
+
                 //この辺からいじってます
                 $dat = file($file_path);
                 $out_dat = array();
@@ -79,6 +82,11 @@ if(isset($_SESSION["name"])){
             array_unshift($out_dat, $dat[0]);
             for($i = 1;$i < count($out_dat) ; $i++){
                 $test=explode(",",$out_dat[$i]);
+                if(strpos($test[3],"http:") !== false || strpos($test[3],"https:") !== false){
+                    $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+                    $replace_http = '<a href="\1" target="_blank">\1</a>';
+                    $test[3] = preg_replace( $pattern_http, $replace_http,$test[3]);
+                }
                 echo "\t<tr>\n";
                 for($j=0;$j<4;$j++){
                     if($j==2){
@@ -96,12 +104,5 @@ if(isset($_SESSION["name"])){
         echo"</table></div>\n";
         fclose($han);
     ?>
-    <form action="" method="post">
-        <?php
-            print '<input type="text" name="hname" size="15" placeholder="ハンドルネーム" value="'.$name.'" maxlength="6">'
-        ?>
-        <input type="text" name="nai" size="50" placeholder="内容" maxlength="300">
-        <input type="submit" value="送信">
-    </form>
 </body>
 </html>
