@@ -12,6 +12,7 @@ if(isset($_SESSION["name"])){
 <html>
 <head>
     <meta charset="utf-8" http-equiv="refresh" content="60">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <title>掲示板</title>
 </head>
 <body>
