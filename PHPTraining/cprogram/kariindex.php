@@ -54,15 +54,14 @@
         echo "<div style='height:1000px; width:900px; overflow-y:scroll;'><table border='1'>\n";
         while (($data = fgetcsv($han,1000,",")) !== false) {
             echo "\t<tr>\n";
+            //forの中にあるから繰り返されてバグってたっぽい。最初にWhile内で判定して置換しておけば大丈夫。
+            if(strpos($data[3],"http:") !== false || strpos($data[3],"https:") !== false){
+                $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+                $replace_http = '<a href="\1">\1</a>';
+                $data[3] = preg_replace( $pattern_http, $replace_http,$data[3]);
+            }
             for($i = 0;$i < count($data) ; $i++){
-                if(strpos($data[3],"http:") !== false || strpos($data[3],"https:") !== false){
-                    $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
-                    $replace_http = '<a href="\1">\1</a>';
-                    $data[3] = preg_replace( $pattern_http, $replace_http,$data[3]);
-                    echo "\t\t<td>{$data[$i]}</td>\n";
-                }else {
-                    echo "\t\t<td>{$data[$i]}</td>\n";
-                }
+                echo "\t\t<td>{$data[$i]}</td>\n";
             }
             echo "\t</tr>\n";
         }
