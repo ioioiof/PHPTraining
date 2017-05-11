@@ -1,10 +1,10 @@
 <html>
 <head>
     <meta charset="utf-8" http-equiv="refresh" content="45">
-    <title>簡易チャットプログラム</title>
+    <title>掲示板</title>
 </head>
 <body>
-    <h1>簡易チャット</h1>
+    <h1>ガバガバ掲示板プログラムくん</h1>
     <form action="" method="post">
         <input type="text" name="hname" size="15" placeholder="ハンドルネーム">
         <input type="text" name="nai" size="50" placeholder="内容">
@@ -19,8 +19,8 @@
     {
         if(isset($_POST['nai']))
         {
-            $hn = $_POST["hname"];
-            $na = $_POST["nai"];
+            $hn = htmlspecialchars($_POST["hname"],ENT_NOQUOTES,"UTF-8");
+            $na = htmlspecialchars($_POST["nai"],ENT_NOQUOTES,"UTF-8");
             $dt1 = date("Y/m/d");
             $dt2 = date("H:i:s");
 
@@ -33,6 +33,7 @@
                 if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     $fpa = fopen($file_path , 'a');
                     if($fpa){
+                        rewind($fpa);
                         fputcsv($fpa,$datas);
                     }
                     fclose($fpa);
@@ -54,7 +55,14 @@
         while (($data = fgetcsv($han,1000,",")) !== false) {
             echo "\t<tr>\n";
             for($i = 0;$i < count($data) ; $i++){
-                echo "\t\t<td>{$data[$i]}</td>\n";
+                if(strpos($data[3],"http:") !== false || strpos($data[3],"https:") !== false){
+                    $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+                    $replace_http = '<a href="\1">\1</a>';
+                    $data[3] = preg_replace( $pattern_http, $replace_http,$data[3]);
+                    echo "\t\t<td>{$data[$i]}</td>\n";
+                }else {
+                    echo "\t\t<td>{$data[$i]}</td>\n";
+                }
             }
             echo "\t</tr>\n";
         }
@@ -65,4 +73,3 @@
 
 
 ?>
-<!--なかじまだょ～-->
