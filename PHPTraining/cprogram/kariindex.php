@@ -60,23 +60,37 @@ if(isset($_SESSION["name"])){
         }
 
         if(($han = fopen($file_path,"r")) !== false){
-            echo "<div style='height:800px; width:900px; overflow-y:scroll;'><table border='1'>\n";
+            echo "<div style='height:800px; width:1000px; overflow-y:scroll;'><table border='1'>\n";
             while (($data = fgetcsv($han,1000,",")) !== false) {
-                echo "\t<tr>\n";
                 if(strpos($data[3],"http:") !== false || strpos($data[3],"https:") !== false){
                     $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
                     $replace_http = '<a href="\1" target="_blank">\1</a>';
                     $data[3] = preg_replace( $pattern_http, $replace_http,$data[3]);
                 }
-                for($i = 0;$i < count($data) ; $i++){
-                    if($i === 2){
-                        echo "\t\t<td width='100'>{$data[$i]}</td>\n";
-                    }else{
-                        echo "\t\t<td>{$data[$i]}</td>\n";
-                    }
+                //この辺からいじってます
+                $dat = file($file_path);
+                $out_dat = array();
+                for($i=0;$i < sizeof($dat);$i++) {
+                   array_push($out_dat, $dat[$i]);
                 }
+                rsort($out_dat);
             }
-            echo "\t</tr>\n";
+            array_unshift($out_dat, $dat[0]);
+            for($i = 1;$i < count($out_dat) ; $i++){
+                $test=explode(",",$out_dat[$i]);
+                echo "\t<tr>\n";
+                for($j=0;$j<4;$j++){
+                    if($j==2){
+                        echo "\t\t<td width='100'>{$test[$j]}</td>\n";
+                    }else{
+                        echo "\t\t<td>{$test[$j]}</td>\n";
+                    }
+
+                }
+                echo "\t</tr>\n";
+            }
+            //いじってるのここまで
+
         }
         echo"</table></div>\n";
         fclose($han);
