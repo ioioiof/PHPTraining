@@ -21,7 +21,7 @@ if(($han = fopen($file_path,"r")) !== false){
             $replace_http = '<a href="\1" target="_blank">\1</a>';
             $text[3] = preg_replace( $pattern_http, $replace_http,$text[3]);
         }
-        if(strpos($text[3],'"&?!comma"') !== false){
+        if(strpos($text[3],'&?!comma') !== false){
             $text[3] = str_replace('"&?!comma"',',',$text[3]);
         }
         echo "\t<tr>\n";
