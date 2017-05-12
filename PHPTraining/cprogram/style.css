@@ -1,6 +1,10 @@
 body{
     background-color:#f5f5dc;
 }
+div#header{
+    width:1040px;
+    margin:0 auto;
+}
 #main{
     height:820px;
     width:1020px;
@@ -14,6 +18,7 @@ div#comment{
     height:50px;
     margin:0 auto;
     background-color: #EEE;
+    padding-top:15px;
 }
 form{
     padding-left:210px;
