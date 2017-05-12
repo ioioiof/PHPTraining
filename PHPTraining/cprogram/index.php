@@ -74,6 +74,8 @@ new Ajax.PeriodicalUpdater(
                     }else{
                         if(strpos($na,',') !== false){
                             $naiyou = str_replace(',','&?!comma',$na);
+                        }else{
+                            $naiyou = $na;
                         }
                         $datas = array('dt1' => $dt1 , 'dt2' => $dt2 , 'name' => $hn , 'nai' => $naiyou);
                         //ここで書き込むついでにセッションがなかったら名前を保存する
