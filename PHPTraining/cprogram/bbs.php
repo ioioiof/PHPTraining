@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css" type="text/css">
 <?php
 date_default_timezone_set('Asia/Tokyo');
 $file_path = "dbb.csv";
@@ -22,12 +23,13 @@ if(($han = fopen($file_path,"r")) !== false){
         }
         echo "\t<tr>\n";
         for($j=0;$j<4;$j++){
-            if($j==0||$j==1){
-                echo "\t\t<td width='110'>{$test[$j]}</td>\n";
-            }else if($j==2){
+            if($j === 2){
                 echo "\t\t<td width='130'>{$test[$j]}</td>\n";
-            }else{
-                echo "\t\t<td width='140'>{$test[$j]}</td>\n";
+            }elseif($j === 3){
+                echo "\t\t<td width='380'>{$test[$j]}</td>\n";
+            }
+            else{
+                echo "\t\t<td width='130'>{$test[$j]}</td>\n";
             }
         }
         echo "\t</tr>\n";
