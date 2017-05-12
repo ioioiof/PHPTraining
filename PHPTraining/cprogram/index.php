@@ -23,7 +23,7 @@ new Ajax.PeriodicalUpdater(
 	    {
 	        "method": "get",
 	        "parameters": "p=hoge",
-	        frequency: 5, // 5秒ごとに実行
+	        frequency: 2, // 2秒ごとに実行
 	        onSuccess: function(request) {
 	            // 成功時の処理を記述
 	            // alert('成功しました');
