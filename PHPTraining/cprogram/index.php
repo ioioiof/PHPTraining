@@ -42,7 +42,7 @@ new Ajax.PeriodicalUpdater(
 	);
 </script>
 <body>
-    <h1>それなり掲示板プログラムくん</h1>
+    <img src="logo.png"/>
     <div id="comment">
         <form action="" method="post">
             <?php
