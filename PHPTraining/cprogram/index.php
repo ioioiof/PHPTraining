@@ -11,10 +11,36 @@ if(isset($_SESSION["name"])){
  ?>
 <html>
 <head>
-    <meta charset="utf-8" http-equiv="refresh" content="60">
+
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>掲示板</title>
 </head>
+<script src="js/prototype.js"></script>
+<script type="text/javascript">
+new Ajax.PeriodicalUpdater(
+	    "main",
+	    "bbs.php",
+	    {
+	        "method": "get",
+	        "parameters": "p=hoge",
+	        frequency: 5, // 5秒ごとに実行
+	        onSuccess: function(request) {
+	            // 成功時の処理を記述
+	            // alert('成功しました');
+	        },
+            onComplete: function(request) {
+	            // 完了時の処理を記述
+	            // alert('読み込みが完了しました');
+	        },
+	        onFailure: function(request) {
+	            alert('読み込みに失敗しました');
+	        },
+	        onException: function (request) {
+	            alert('読み込み中にエラーが発生しました');
+	        }
+	    }
+	);
+</script>
 <body>
     <h1>それなり掲示板プログラムくん</h1>
     <div id="comment">
@@ -67,39 +93,7 @@ if(isset($_SESSION["name"])){
                 echo "</ul>";
             }
         }
-        if(($han = fopen($file_path,"r")) !== false){
-            echo '<div id="main"><table class="flat-table">';
-            while (($data = fgetcsv($han,1000,",")) !== false) {
-                //この辺からいじってます
-                $dat = file($file_path);
-                $out_dat = array();
-                for($i=0;$i < sizeof($dat);$i++) {
-                   array_push($out_dat, $dat[$i]);
-                }
-                rsort($out_dat);
-            }
-            array_unshift($out_dat, $dat[0]);
-            for($i = 1;$i < count($out_dat) ; $i++){
-                $test=explode(",",$out_dat[$i]);
-                if(strpos($test[3],"http:") !== false || strpos($test[3],"https:") !== false){
-                    $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
-                    $replace_http = '<a href="\1" target="_blank">\1</a>';
-                    $test[3] = preg_replace( $pattern_http, $replace_http,$test[3]);
-                }
-                echo "\t<tr>\n";
-                for($j=0;$j<4;$j++){
-                    if($j==2){
-                        echo "\t\t<td width='100'>{$test[$j]}</td>\n";
-                    }else{
-                        echo "\t\t<td height=''90>{$test[$j]}</td>\n";
-                    }
-                }
-                echo "\t</tr>\n";
-            }
-            //いじってるのここまで
-        }
-        echo"</table></div>\n";
-        fclose($han);
     ?>
+    <div id="main"></div>
 </body>
 </html>
