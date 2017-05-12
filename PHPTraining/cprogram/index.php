@@ -42,7 +42,7 @@ new Ajax.PeriodicalUpdater(
 	);
 </script>
 <body>
-    <img src="logo.png"/>
+    <img src="img/logo.png"/>
     <div id="comment">
         <form action="" method="post">
             <?php
