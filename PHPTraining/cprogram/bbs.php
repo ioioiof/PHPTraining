@@ -22,7 +22,7 @@ if(($han = fopen($file_path,"r")) !== false){
             $text[3] = preg_replace( $pattern_http, $replace_http,$text[3]);
         }
         if(strpos($text[3],'&?!comma') !== false){
-            $text[3] = str_replace('"&?!comma"',',',$text[3]);
+            $text[3] = str_replace('&?!comma',',',$text[3]);
         }
         echo "\t<tr>\n";
         for($j=0;$j<4;$j++){
