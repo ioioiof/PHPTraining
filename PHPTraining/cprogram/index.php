@@ -77,6 +77,9 @@ new Ajax.PeriodicalUpdater(
                         }else{
                             $naiyou = $na;
                         }
+                        if(strpos($text[3],'"') !== false){
+                            $naiyou = str_replace('"','""',$naiyou);
+                        }
                         $datas = array('dt1' => $dt1 , 'dt2' => $dt2 , 'name' => $hn , 'nai' => $naiyou);
                         //ここで書き込むついでにセッションがなかったら名前を保存する
                         //一応HNも書き換えられるように設定しよう

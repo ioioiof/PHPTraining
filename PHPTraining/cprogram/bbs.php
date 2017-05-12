@@ -24,6 +24,9 @@ if(($han = fopen($file_path,"r")) !== false){
         if(strpos($text[3],'&?!comma') !== false){
             $text[3] = str_replace('&?!comma',',',$text[3]);
         }
+        if(strpos($text[3],'""') !== false){
+            $text[3] = str_replace('""','"',$text[3]);
+        }
         echo "\t<tr>\n";
         for($j=0;$j<4;$j++){
             if($j === 2){
