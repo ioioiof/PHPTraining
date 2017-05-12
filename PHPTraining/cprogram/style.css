@@ -1,7 +1,83 @@
-body:background-color    {#f5f5dc;}
+body{
+    background-color:#f5f5dc;
+}
 #main{
-    height:800px;
-    width:1000px;
+    height:820px;
+    width:1020px;
     overflow-y:scroll;
     margin:0 auto;
+    padding:10px;
+    background-color:#EEE;
+}
+div#comment{
+    width:1040px;
+    height:50px;
+    margin:0 auto;
+    background-color: #EEE;
+}
+form{
+    padding-left:210px;
+    padding-top:7px;
+}
+
+input.textarea{
+    border:0;
+    padding:5px;
+    font-size:1.3em;
+    font-family:Arial, sans-serif;
+    color:#aaa;
+    border:solid 1px #ccc;
+    /*margin:0 0 10px;*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+input.textarea:focus {
+    border:solid 1px #EEA34A;
+}
+input#naiyou{
+    width:300px;
+    padding-bottom:6px;
+}
+input#name{
+    width:150px;
+}
+input#sub{
+    border:solid 1px #ccc;
+    padding:7px 30px;
+    margin:0 0 20px;
+    font-family:Arial, sans-serif;
+    font-size:1.2em;
+    text-transform:uppercase;
+    font-weight:bold;
+    color:#333;
+    cursor:pointer;
+    text-shadow: 0px -1px 1px rgba(255, 255, 255, 0.8);
+    transition: color 0.5s;
+}
+
+input#sub:hover{
+    color:#F66;
+    transition: color 0.3s;
+}
+
+table.flat-table {
+  display: block;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 115%;
+  overflow: auto;
+  width: auto;
+}
+th {
+    font-weight: normal;
+    text-align: center;
+}
+td {
+    background-color: #FFF;
+    color: rgb(111, 111, 111);
+    padding: 20px 30px;
 }
