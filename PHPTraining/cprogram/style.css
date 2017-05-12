@@ -64,6 +64,18 @@ input#sub:hover{
     transition: color 0.3s;
 }
 
+#err{
+    background-color: #EEE;
+    width:1040px;
+    height:30px;
+    margin:0 auto;
+    padding-top:20px;
+    color:#F00;
+}
+ul li{
+    list-style:none;
+}
+
 table.flat-table {
   display: block;
   font-family: sans-serif;

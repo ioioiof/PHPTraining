@@ -52,6 +52,7 @@ new Ajax.PeriodicalUpdater(
             <input type="submit" value="submit" id="sub">
         </form>
     </div>
+    <div id="err">
     <?php
         date_default_timezone_set('Asia/Tokyo');
         $file_path = "dbb.csv";
@@ -94,6 +95,7 @@ new Ajax.PeriodicalUpdater(
             }
         }
     ?>
+    </div>
     <div id="main"></div>
 </body>
 </html>
