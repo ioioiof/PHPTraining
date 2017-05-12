@@ -16,14 +16,16 @@ if(isset($_SESSION["name"])){
     <title>掲示板</title>
 </head>
 <body>
-    <h1>ガバガバ掲示板プログラムくん</h1>
-    <form action="" method="post">
-        <?php
-            print '<input type="text" name="hname" size="15" placeholder="ハンドルネーム" value="'.$name.'" maxlength="6">'
-        ?>
-        <input type="text" name="nai" size="50" placeholder="内容" maxlength="300">
-        <input type="submit" value="送信">
-    </form>
+    <h1>それなり掲示板プログラムくん</h1>
+    <div id="comment">
+        <form action="" method="post">
+            <?php
+                print '<input type="text" name="hname" placeholder="ハンドルネーム" value="'.$name.'" maxlength="6" class="textarea" id="name">'
+            ?>
+            <input type="text" name="nai" placeholder="内容" maxlength="300" class="textarea" id="naiyou">
+            <input type="submit" value="submit" id="sub">
+        </form>
+    </div>
     <?php
         date_default_timezone_set('Asia/Tokyo');
         $file_path = "dbb.csv";
@@ -68,7 +70,7 @@ if(isset($_SESSION["name"])){
         }
 
         if(($han = fopen($file_path,"r")) !== false){
-            echo '<div id="main"><table border="1">';
+            echo '<div id="main"><table class="flat-table">';
             while (($data = fgetcsv($han,1000,",")) !== false) {
 
                 //この辺からいじってます
