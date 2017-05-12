@@ -74,6 +74,7 @@ input#sub:hover{
 }
 ul li{
     list-style:none;
+    background-color:#EEE
 }
 
 table.flat-table {
