@@ -24,8 +24,7 @@ if(($han = fopen($file_path,"r")) !== false){
         for($j=0;$j<4;$j++){
             if($j==0||$j==1){
                 echo "\t\t<td width='110'>{$test[$j]}</td>\n";
-            }
-            if($j==2){
+            }else if($j==2){
                 echo "\t\t<td width='130'>{$test[$j]}</td>\n";
             }else{
                 echo "\t\t<td width='140'>{$test[$j]}</td>\n";
