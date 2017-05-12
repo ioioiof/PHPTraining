@@ -72,7 +72,10 @@ new Ajax.PeriodicalUpdater(
                     }elseif($na === "" || mb_ereg_match("\s",$na)){
                         $errors['nai'] = 'なんか書け';
                     }else{
-                        $datas = array('dt1' => $dt1 , 'dt2' => $dt2 , 'name' => $hn , 'nai' => $na);
+                        if(strpos($na,',') !== false){
+                            $naiyou = str_replace(',','&?!comma',$na);
+                        }
+                        $datas = array('dt1' => $dt1 , 'dt2' => $dt2 , 'name' => $hn , 'nai' => $naiyou);
                         //ここで書き込むついでにセッションがなかったら名前を保存する
                         //一応HNも書き換えられるように設定しよう
                         if(!isset($_SESSION["name"])||$_SESSION["name"]!=$hn){
