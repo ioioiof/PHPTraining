@@ -44,7 +44,7 @@ new Ajax.PeriodicalUpdater(
 <body>
     <div id="wrapper">
         <div id="header"/>
-            <img src="img/logo.png"/>
+            <img src="img/kill.png"/>
         </div>
         <div id="comment">
             <form action="" method="post">
