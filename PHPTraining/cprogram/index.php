@@ -49,7 +49,7 @@ new Ajax.PeriodicalUpdater(
         <div id="comment">
             <form action="" method="post">
                 <?php
-                    print '<input type="text" name="hname" placeholder="ハンドルネーム" value="'.$name.'" maxlength="6" class="textarea" id="name">'
+                    print '<input type="text" name="hname" placeholder="お名前" value="'.$name.'" maxlength="8" class="textarea" id="name">'
                 ?>
                 <input type="text" name="nai" placeholder="内容" maxlength="300" class="textarea" id="naiyou">
                 <input type="submit" value="submit" id="sub">
