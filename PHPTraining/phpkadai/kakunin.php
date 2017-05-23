@@ -22,8 +22,8 @@
         default:
             break;
     }
+?>
 
-echo "
 <html>
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
@@ -32,50 +32,52 @@ echo "
 </head>
 <body>
     <div id='di'>確認</div>
-    <form action='' method='post' name='form2'>
+    <form action='end.php' method='post' name='form2'>
         <table border='0' id='ta'>
             <tr>
                 <td>姓</td>
-                <td>$sname</td>
+                <td><label name="sname"><?php echo $sname; ?></label></td>
                 </tr>
                 <tr>
                 <td>名</td>
-                <td>$nname</td>
+                <td><?php echo $nname; ?></td>
              </tr>
              <tr>
                 <td>性別</td>
-                <td>$sei</td>
+                <td><?php echo $sei; ?></td>
              </tr>
              <tr>
                 <td>住所</td>
-                <td>$zilyuusilyo</td>
+                <td><?php echo $zilyuusilyo; ?></td>
              </tr>
              <tr>
                 <td>電話番号</td>
-                <td>$den</td>
+                <td><?php echo $den; ?></td>
              </tr>
              <tr>
                 <td>メールアドレス</td>
-                <td>$mailadd</td>
+                <td><?php echo $mailadd; ?></td>
              </tr>
              <tr>
                 <td>どこで知ったか</td>
-                <td>$taku_one $taku_two</td>
+                <td><?php echo $taku_one." ".$taku_two; ?></td>
              </tr>
              <tr>
                 <td>カテゴリ</td>
-                <td>$kate</td>
+                <td><?php echo $kate; ?></td>
              </tr>
              <tr>
                 <td>内容</td>
-                <td>$nai</td>
+                <td><?php echo $nai; ?></td>
             </tr>
             <tr>
                 <td><input type='submit' value='送信'></td>
                 <td><input type='button' onclick='history.back()' value='戻る'></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><a href="index.html">未入力状態でお書き直します。</a></td>
+            </tr>
         </table>
     </form>
 </body>
 </html>
-";
-?>

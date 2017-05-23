@@ -1,5 +1,5 @@
 body{
-    background-color:#afeeee;
+    background-color:#d1ffff;
 }
 #ta{
     margin-left: auto;
@@ -8,4 +8,10 @@ body{
 }
 #di{
     text-align: center;
+}
+#trr{
+    background-color:#d1ffd1;
+}
+#trg{
+    background-color:#ffffe5;
 }

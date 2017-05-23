@@ -1,3 +1,4 @@
+<!-- 変数に値が渡っているかチェック -->
 <?php
     //sname(姓)とnname(名)に値が入っているか判定
     if(isset($_POST['sname']) || isset($_POST['nname'])){
