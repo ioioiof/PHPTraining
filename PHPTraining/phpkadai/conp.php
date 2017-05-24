@@ -1,5 +1,6 @@
-<!--完了しましたって表示する為だけの画面-->
+<!--完了しましたって表示する画面-->
 <?php
+    //前の画面でセッションに保持した値を取り出す
     session_start();
     $No = $_SESSION['No'];
  ?>
@@ -11,16 +12,16 @@
 </head>
 <body>
     <div id="di">完了</div>
-    <form action="silyo.php" method="post" name="form1">
+    <form action="" method="post">
         <table border="0" id="ta">
             <tr>
                 <td>お問い合わせ番号</td>
-                <td><?php echo $No; ?></td>
-            </tr>
-            <tr align="center">
-                <td colspan="2"><a href="index.html">トップへ戻る</a></td>
+                <td><?= $No ?></td>
             </tr>
         </table>
     </form>
+    <div id="di">
+        <a href="index.html">トップへ戻る</a>
+    </div>
 </body>
 </html>

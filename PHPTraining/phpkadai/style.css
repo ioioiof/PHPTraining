@@ -5,6 +5,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
+    background-color:#ffffe5;
 }
 #di{
     text-align: center;
@@ -14,4 +15,12 @@ body{
 }
 #trg{
     background-color:#ffffe5;
+}
+td,th{
+    padding:5px;
+    text-align: center;
+}
+#but input{
+    background:#ffd8b2;
+    border:1px solid #ffc184;
 }

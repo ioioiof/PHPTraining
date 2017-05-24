@@ -33,7 +33,7 @@
                                 //数字でなければアラート
                                 echo '<script type="text/javascript">alert("電話番号は半角数字で入力してください。");history.go(-1);</script>';
                             }else{
-                                //数字であれば値をセッションに保持
+                                //数字であれば値をセッションに保持して、kakunin.phpに遷移
                                 session_start();
                                 $_SESSION['nname'] = $nname;
                                 $_SESSION['sname'] = $sname;
