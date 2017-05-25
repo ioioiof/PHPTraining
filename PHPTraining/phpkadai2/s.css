@@ -8,13 +8,46 @@
 .retu2{
     flex: 1 1 auto;
 }
-.main{
-    width:80%;
+.retuB{
+    text-align: center;
+    flex: 1 1 auto;
+}
+.retuK{
+    width:150px;
+    text-align: center;
+    background-color: #88bfbf;
+}
+.retuK2{
+    text-align: center;
+    background-color: #dbebc4;
+    width:150px;
+}
+.main2{
+    width:1200px;
     margin:20px auto 20px auto;
     padding:20px 20px 20px 20px;
     background-color: #f7f6f5;
     border:1px solid darkgray;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    width:500px;
+    margin:20px auto 20px auto;
+    padding:20px 20px 20px 20px;
+    background-color: #f7f6f5;
+    border:1px solid darkgray;
+    justify-content: center;
+    align-items: center;
 }
 #di{
     text-align: center;
+}
+
+label{
+    cursor:pointer;
+}
+label:hover{
+    background-color:#a0d8ef;
+    color:#ee7800;
 }

@@ -1,5 +1,14 @@
 <!-- 変数に値が渡っているかチェック -->
 <?php
+    if(isset($_POST['nai'])){
+        $nai = $_POST['nai'];
+        if(strpos($nai,'<') !== false){
+            $nai = str_replace('<','&?!Ds',$nai);
+        }
+        if(strpos($nai,'>') !== false){
+            $nai = str_replace('>','&?!sD',$nai);
+        }
+    }
     //sname(姓)とnname(名)に値が入っているか判定
     if(isset($_POST['sname']) || isset($_POST['nname'])){
         $sname = htmlspecialchars($_POST["sname"],ENT_NOQUOTES,"UTF-8");
@@ -45,7 +54,7 @@
                                 $_SESSION['taku_one'] = $_POST['taku_one'];
                                 $_SESSION['taku_two' ]= $_POST['taku_two'];
                                 $_SESSION['kate'] = $_POST['kate'];
-                                $_SESSION['nai'] = $_POST['nai'];
+                                $_SESSION['nai'] = $nai;
                                 header("Location: kakunin.php");
                             }//den1,2,3の数字チェック
                         }//den1,2,3の空白チェック

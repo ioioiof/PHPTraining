@@ -49,12 +49,18 @@
             //textにカンマ区切りを分けて配列として格納
             $text = explode(",",$out_dat[$i]);
             echo "\t<tr id='trg'>\n";
-            for($j = 0 ; $j < 10 ; $j++){
+            for($j = 0 ; $j < count($text) ; $j++){
                 //各項目に「&?!comma」があれば「,」に戻す
                 if(strpos($text[$j],'&?!comma') !== false){
                     $text[$j] = str_replace('&?!comma',',',$text[$j]);
                 }
-                echo "\t\t<td>{$text[$j]}</td>\n";
+                if(strpos($text[$j],'&?!Ds') !== false){
+                    $text[$j] = str_replace('&?!Ds','＜',$text[$j]);
+                }
+                if(strpos($text[$j],'&?!sD') !== false){
+                    $text[$j] = str_replace('&?!sD','＞',$text[$j]);
+                }
+                echo "\t\t<td class='ww'>{$text[$j]}</td>\n";
             }
             echo "\t</tr>\n";
         }

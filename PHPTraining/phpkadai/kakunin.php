@@ -11,7 +11,14 @@
     $taku_two = $_SESSION['taku_two'];
     $kate = $_SESSION['kate'];
     $nai = $_SESSION['nai'];
-    //セッションは消さずそのまま
+
+    if(strpos($nai,'&?!Ds') !== false){
+        $nai = str_replace('&?!Ds','＜',$nai);
+    }
+    if(strpos($nai,'&?!sD') !== false){
+        $nai = str_replace('&?!sD','＞',$nai);
+    }
+
 ?>
 <!--各入力事項表示-->
 <html>
