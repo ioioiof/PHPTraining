@@ -1,13 +1,19 @@
 <?php
-//セッション開始
-session_start();
-//名前のセッションがもうあったらテキストボックスに設定しまーす
-if(isset($_SESSION["name"])){
-    $name = $_SESSION["name"];
-    }else{
-    //なかったら空白やで
-    $name = "";
-}
+    //セッション開始
+    session_start();
+    //名前のセッションがもうあったらテキストボックスに設定しまーす
+    if(isset($_SESSION["name"])){
+        $name = $_SESSION["name"];
+        }else{
+            //なかったら空白やで
+            $name = "";
+        }
+
+        if (isset($_SESSION['ID'])) {
+            $name = $_SESSION['id_name'];
+        }else{
+            header("Location:in.php");
+        }
  ?>
 <html>
 <head>
@@ -45,12 +51,15 @@ new Ajax.PeriodicalUpdater(
     <div id="wrapper">
         <div id="header"/>
             <img src="img/kill.png"/>
+            <br>
+            <a href="fcoh.php">ログアウト</a>
         </div>
         <div id="comment">
             <form action="" method="post">
                 <?php
-                    print '<input type="text" name="hname" placeholder="お名前" value="'.$name.'" maxlength="8" class="textarea" id="name">'
+                    print '<input type="text" name="name" placeholder="お名前" value="'.$name.'" maxlength="8" class="textarea" id="name" disabled="disabled">'
                 ?>
+                <input type="hidden" name="hname" value="<?= $name ?>">
                 <input type="text" name="nai" placeholder="内容" maxlength="300" class="textarea" id="naiyou">
                 <input type="submit" value="submit" id="sub">
             </form>

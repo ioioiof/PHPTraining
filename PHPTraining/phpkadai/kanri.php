@@ -48,7 +48,11 @@
         for($i = 1;$i < count($out_dat) ; $i++){
             //textにカンマ区切りを分けて配列として格納
             $text = explode(",",$out_dat[$i]);
-            echo "\t<tr id='trg'>\n";
+            if($i%2 == 0){
+                echo "\t<tr id='trg'>\n";
+            }else{
+                echo "\t<tr id='trg2'>\n";
+            }
             for($j = 0 ; $j < count($text) ; $j++){
                 //各項目に「&?!comma」があれば「,」に戻す
                 if(strpos($text[$j],'&?!comma') !== false){

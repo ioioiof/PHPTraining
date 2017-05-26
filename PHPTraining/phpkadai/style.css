@@ -1,5 +1,9 @@
 body{
     background-color:#d1ffff;
+    background-image: url(flower_gerbera.png);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 #ta{
     margin-left: auto;
@@ -16,11 +20,18 @@ body{
 #trg{
     background-color:#ffffe5;
 }
+#trg2{
+    background-color:#ffdbdb;
+}
 td,th{
     padding:5px;
     text-align: center;
+    border-bottom: 1px dashed #000000;
 }
 #but input{
     background:#ffd8b2;
     border:1px solid #ffc184;
+}
+textarea {
+    resize: none;
 }
