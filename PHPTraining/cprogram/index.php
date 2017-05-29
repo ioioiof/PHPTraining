@@ -19,6 +19,7 @@
 <head>
 
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="shortcut icon" href="original.gif" />
     <title>掲示板</title>
 </head>
 <script src="js/prototype.js"></script>

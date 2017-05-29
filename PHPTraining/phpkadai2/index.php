@@ -66,88 +66,88 @@
     <div id="di">تحقيق</div>
     <div class="main">
         <form action="" method="post" name="form1">
-            <div class="giylou">
-                <div class="retu1">الكنية</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">الكنية</li>
+                <li class="retu2">
                     <input type="text" name="LName" maxlength="8" placeholder="الكنية">
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">الاسم الاول</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">الاسم الاول</li>
+                <li class="retu2">
                     <input type="text" name="FName" maxlength="8" placeholder="الاسم الاول">
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">جنس</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">جنس</li>
+                <li class="retu2">
                     <label><input type="radio" name = "sex" value="رجالي" checked>رجالي</label>
                     <label><input type="radio" name = "sex" value="نساء">نساء</label>
                     <label><input type="radio" name = "sex" value="غير معروف">غير معروف</label>
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">عنوان الشارع</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">عنوان الشارع</li>
+                <li class="retu2">
                     <input type="text" name="SAdd" placeholder="عنوان الشارع">
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">رقم الهاتف</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">رقم الهاتف</li>
+                <li class="retu2">
                     <input type="text" name="Pnum1" maxlength="4" size="4" placeholder="xxxx">-
                     <input type="text" name="Pnum2" maxlength="4" size="4" placeholder="xxxx">-
                     <input type="text" name="Pnum3" maxlength="4" size="4" placeholder="xxxx">
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">عنوان البريد</div>
-                <div class="retu2">
-                    <input type="text" name="MAdd1" size="10" pattern="^[a-zA-Z0-9!$*.=^`|~#%'+\/?_{}-]+" placeholder="info">@
+            <ul class="giylou">
+                <li class="retu1">عنوان البريد</li>
+                <li class="retu2">
+                    <input type="text" name="MAdd1" size="10" maxlength="20" pattern="^[a-zA-Z0-9!$*.=^`|~#%'+\/?_{}-]+" placeholder="info">@
                     <input type="text" name="MAdd2" size="12" pattern="([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,4}$" placeholder="example.com">
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">أعرف</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">أعرف</li>
+                <li class="retu2">
                     <label><input type="checkbox" name="know_one" value="مجلة">مجلة</label>
                     <label><input type="checkbox" name="know_two" value="جريدة">جريدة</label>
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">الفئة</div>
-                <div class="retu2">
+            <ul class="giylou">
+                <li class="retu1">الفئة</li>
+                <li class="retu2">
                     <select name="category">
                     <option value="طعام">طعام</option>
                     <option value="ملابس">ملابس</option>
                     <option value="منزل">منزل</option>
                     </select>
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1">سؤال</div>
-            </div>
+            <ul class="giylou">
+                <li class="retu1">سؤال</li>
+            </ul>
 
-            <div class="giylou">
-                <div class="retu1"></div>
-                <div class="retu2">
-                    <textarea name="question"></textarea>
-                </div>
-            </div>
-            <div class="giylou">
-                <div class="retuB">
+            <ul class="giylou">
+                <li class="retu1"></li>
+                <li class="retu2">
+                    <textarea maxlength="200" name="question"></textarea>
+                </li>
+            </ul>
+            <ul class="giylou">
+                <li class="retuB">
                     <input type="submit" value="التحقق من">
                     <input type="reset" value="إعادة تعيين">
-                </div>
-            </div>
+                </li>
+            </ul>
         </form>
     </div>
     <div id="di">

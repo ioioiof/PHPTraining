@@ -9,6 +9,15 @@
             $nai = str_replace('>','&?!sD',$nai);
         }
     }
+    if(isset($_POST['zilyuusilyo'])){
+        $zi = $_POST['zilyuusilyo'];
+        if(strpos($zi,'<') !== false){
+            $zi = str_replace('<','&?!Ds',$zi);
+        }
+        if(strpos($zi,'>') !== false){
+            $zi = str_replace('>','&?!sD',$zi);
+        }
+    }
     //sname(姓)とnname(名)に値が入っているか判定
     if(isset($_POST['sname']) || isset($_POST['nname'])){
         $sname = htmlspecialchars($_POST["sname"],ENT_NOQUOTES,"UTF-8");
@@ -50,7 +59,7 @@
                                 $den = $den1.$den2;
                                 $_SESSION['den'] =  $den.$den3;
                                 $_SESSION['mailadd'] = $mail."@".$domain;
-                                $_SESSION['zilyuusilyo'] = $_POST['zilyuusilyo'];
+                                $_SESSION['zilyuusilyo'] = $zi;
                                 $_SESSION['taku_one'] = $_POST['taku_one'];
                                 $_SESSION['taku_two' ]= $_POST['taku_two'];
                                 $_SESSION['kate'] = $_POST['kate'];
@@ -66,5 +75,9 @@
     function al(){
         //アラートを呼び出し、処理前に戻る
         echo '<script type="text/javascript">alert("必須項目に未入力があります。");history.go(-1);</script>';
+    }
+    function als(){
+        //アラートを呼び出し、処理前に戻る
+        echo '<script type="text/javascript">alert("使用できない文字があります。");history.go(-1);</script>';
     }
 ?>

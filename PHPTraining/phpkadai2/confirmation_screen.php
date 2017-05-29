@@ -13,10 +13,10 @@
     $question = $_SESSION['question'];
 
     if(strpos($question,'&?!Ds') !== false){
-        $question = str_replace('&?!Ds','＜',$question);
+        $question = str_replace('&?!Ds','&lt;',$question);
     }
     if(strpos($question,'&?!sD') !== false){
-        $question = str_replace('&?!sD','＞',$question);
+        $question = str_replace('&?!sD','&gt;',$question);
     }
     //セッションは消さずそのまま
 ?>

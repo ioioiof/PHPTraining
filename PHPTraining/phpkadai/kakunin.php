@@ -13,10 +13,16 @@
     $nai = $_SESSION['nai'];
 
     if(strpos($nai,'&?!Ds') !== false){
-        $nai = str_replace('&?!Ds','＜',$nai);
+        $nai = str_replace('&?!Ds','&lt;',$nai);
     }
     if(strpos($nai,'&?!sD') !== false){
-        $nai = str_replace('&?!sD','＞',$nai);
+        $nai = str_replace('&?!sD','&gt;',$nai);
+    }
+    if(strpos($zilyuusilyo,'&?!Ds') !== false){
+        $zilyuusilyo = str_replace('&?!Ds','&lt;',$zilyuusilyo);
+    }
+    if(strpos($zilyuusilyo,'&?!sD') !== false){
+        $zilyuusilyo = str_replace('&?!sD','&gt;',$zilyuusilyo);
     }
 
 ?>
@@ -24,11 +30,12 @@
 <html>
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel='stylesheet' href='style.css' type='text/css'>
     <title>課題</title>
 </head>
 <body>
-    <div id='di'>確認</div>
+    <h4 id='di'>確認</h4>
     <!--送信ボタンでend.phpに遷移-->
     <form action='end.php' method='post' name='form2'>
         <table border='0' cellspacing="15" id='ta'>

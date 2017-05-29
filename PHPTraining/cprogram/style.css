@@ -1,5 +1,9 @@
 body{
     background-color:#f5f5dc;
+    background-image: url(original.gif);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 div#header{
     width:1040px;

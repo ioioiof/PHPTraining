@@ -7,11 +7,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>課題</title>
 </head>
 <body>
-    <div id="di">完了</div>
+    <h4 id="di">完了</h4>
     <form action="" method="post">
         <table border="0" id="ta">
             <tr>

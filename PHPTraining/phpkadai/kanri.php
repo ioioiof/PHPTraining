@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>課題</title>
 </head>
 <body>
-    <div id="di">管理者ぺぇじ</div>
+    <h4 id="di">管理者ぺぇじ</h4>
 <?php
     //csvファイルの名前を変数に
     $file_path = "de.csv";
@@ -48,6 +49,7 @@
         for($i = 1;$i < count($out_dat) ; $i++){
             //textにカンマ区切りを分けて配列として格納
             $text = explode(",",$out_dat[$i]);
+            //偶数行と奇数行で背景色を変える処理
             if($i%2 == 0){
                 echo "\t<tr id='trg'>\n";
             }else{
@@ -58,13 +60,23 @@
                 if(strpos($text[$j],'&?!comma') !== false){
                     $text[$j] = str_replace('&?!comma',',',$text[$j]);
                 }
+                //各項目に「&?!Ds」があれば「＜」に戻す
                 if(strpos($text[$j],'&?!Ds') !== false){
-                    $text[$j] = str_replace('&?!Ds','＜',$text[$j]);
+                    $text[$j] = str_replace('&?!Ds','&lt;',$text[$j]);
                 }
+                //各項目に「&?!sD」があれば「＞」に戻す
                 if(strpos($text[$j],'&?!sD') !== false){
-                    $text[$j] = str_replace('&?!sD','＞',$text[$j]);
+                    $text[$j] = str_replace('&?!sD','&gt;',$text[$j]);
                 }
-                echo "\t\t<td class='ww'>{$text[$j]}</td>\n";
+
+                if($j == count($text)-1){
+                    //表示
+                    echo "\t\t<td class='ww'>{$text[$j]}</td>\n";
+                }else{
+                    //表示
+                    echo "\t\t<td>{$text[$j]}</td>\n";
+                }
+
             }
             echo "\t</tr>\n";
         }
@@ -74,7 +86,7 @@
     fclose($han);
 ?>
 <div id="di">
-    <button onclick="history.back()">トップへ戻る</button>
+    <input type="button" onclick="history.back()" value="トップへ戻る">
 </div>
 </body>
 </html>

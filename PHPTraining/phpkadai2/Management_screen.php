@@ -20,33 +20,34 @@
             rsort($out_dat);
         }
         array_unshift($out_dat, $dat[0]);
-        echo "<div class='giylou'>
-                <div class='retuK'>No.</div>
-                <div class='retuK'>اسم</div>
-                <div class='retuK'>جنس</div>
-                <div class='retuK'>عنوان</div>
-                <div class='retuK'>رقم الهاتف</div>
-                <div class='retuK'>عنوان البريد الإلكتروني</div>
-                <div class='retuK'>أعرف</div>
-                <div class='retuK'>فئة</div>
-                <div class='retuK'>سؤال</div>
-            </div>";
+        echo "<ul class='giylou'>
+                <li class='retuK'>No.</li>
+                <li class='retuK'>اسم</li>
+                <li class='retuK'>جنس</li>
+                <li class='retuK'>عنوان</li>
+                <li class='retuK'>رقم الهاتف</li>
+                <li class='retuK'>عنوان البريد الإلكتروني</li>
+                <li class='retuKa'>أعرف</li>
+                <li class='retuKa'></li>
+                <li class='retuK'>فئة</li>
+                <li class='retuK'>سؤال</li>
+            </ul>";
         for($i = 1;$i < count($out_dat) ; $i++){
             $text = explode(",",$out_dat[$i]);
-            echo "\t<div class='giylou'>\n";
+            echo "\t<ul class='giylou'>\n";
             for($j = 0 ; $j < count($text) ; $j++){
                 if(strpos($text[$j],'&?!comma') !== false){
                     $text[$j] = str_replace('&?!comma',',',$text[$j]);
                 }
                 if(strpos($text[$j],'&?!Ds') !== false){
-                    $text[$j] = str_replace('&?!Ds','＜',$text[$j]);
+                    $text[$j] = str_replace('&?!Ds','&lt;',$text[$j]);
                 }
                 if(strpos($text[$j],'&?!sD') !== false){
-                    $text[$j] = str_replace('&?!sD','＞',$text[$j]);
+                    $text[$j] = str_replace('&?!sD','&gt;',$text[$j]);
                 }
-                echo "\t\t<div class='retuK2'>{$text[$j]}</div>\n";
+                echo "\t\t<li class='retuK2'>{$text[$j]}</li>\n";
             }
-            echo "\t</div>\n";
+            echo "\t</ul>\n";
         }
     }
     fclose($han);
