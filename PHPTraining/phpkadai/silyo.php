@@ -65,8 +65,4 @@
         //アラートを呼び出し、処理前に戻る
         echo '<script type="text/javascript">alert("必須項目に未入力があります。");history.go(-1);</script>';
     }
-    function als(){
-        //アラートを呼び出し、処理前に戻る
-        echo '<script type="text/javascript">alert("使用できない文字があります。");history.go(-1);</script>';
-    }
 ?>
