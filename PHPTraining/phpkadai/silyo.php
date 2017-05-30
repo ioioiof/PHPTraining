@@ -1,5 +1,6 @@
 <!-- 変数に値が渡っているかチェック -->
 <?php
+    //内容の「<」「>」を変換
     if(isset($_POST['nai'])){
         $nai = $_POST['nai'];
         if(strpos($nai,'<') !== false){
@@ -20,6 +21,7 @@
     }
     //sname(姓)とnname(名)に値が入っているか判定
     if(isset($_POST['sname']) || isset($_POST['nname'])){
+        //「"」「'」「<」「>」「&」を正規表現に変える
         $sname = htmlspecialchars($_POST["sname"],ENT_NOQUOTES,"UTF-8");
         $nname = htmlspecialchars($_POST['nname'],ENT_NOQUOTES,"UTF-8");
         //値は入っていてかつ、値が空白かどうか判定
