@@ -3,6 +3,7 @@
     //前の画面でセッションに保持した値を取り出す
     session_start();
     $No = $_SESSION['No'];
+    session_destroy();
  ?>
 <html>
 <head>
