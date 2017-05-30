@@ -60,7 +60,7 @@
                 if(strpos($text[$j],'&?!comma') !== false){
                     $text[$j] = str_replace('&?!comma',',',$text[$j]);
                 }
-                
+
                 if($j == count($text)-1){
                     //表示
                     echo "\t\t<td class='ww'>{$text[$j]}</td>\n";
