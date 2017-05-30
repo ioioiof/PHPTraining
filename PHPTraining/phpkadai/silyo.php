@@ -1,27 +1,14 @@
 <!-- 変数に値が渡っているかチェック -->
 <?php
-    //内容の「<」「>」を変換
+    //「"」「'」「<」「>」「&」を正規表現に変える
     if(isset($_POST['nai'])){
-        $nai = $_POST['nai'];
-        if(strpos($nai,'<') !== false){
-            $nai = str_replace('<','&?!Ds',$nai);
-        }
-        if(strpos($nai,'>') !== false){
-            $nai = str_replace('>','&?!sD',$nai);
-        }
+        $nai = htmlspecialchars($_POST["nai"],ENT_NOQUOTES,"UTF-8");
     }
     if(isset($_POST['zilyuusilyo'])){
-        $zi = $_POST['zilyuusilyo'];
-        if(strpos($zi,'<') !== false){
-            $zi = str_replace('<','&?!Ds',$zi);
-        }
-        if(strpos($zi,'>') !== false){
-            $zi = str_replace('>','&?!sD',$zi);
-        }
+        $zi = htmlspecialchars($_POST["zilyuusilyo"],ENT_NOQUOTES,"UTF-8");
     }
     //sname(姓)とnname(名)に値が入っているか判定
     if(isset($_POST['sname']) || isset($_POST['nname'])){
-        //「"」「'」「<」「>」「&」を正規表現に変える
         $sname = htmlspecialchars($_POST["sname"],ENT_NOQUOTES,"UTF-8");
         $nname = htmlspecialchars($_POST['nname'],ENT_NOQUOTES,"UTF-8");
         //値は入っていてかつ、値が空白かどうか判定

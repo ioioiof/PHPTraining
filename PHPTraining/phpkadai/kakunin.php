@@ -15,18 +15,6 @@
         $kate = $_SESSION['kate'];
         $nai = $_SESSION['nai'];
 
-        if(strpos($nai,'&?!Ds') !== false){
-            $nai = str_replace('&?!Ds','&lt;',$nai);
-        }
-        if(strpos($nai,'&?!sD') !== false){
-            $nai = str_replace('&?!sD','&gt;',$nai);
-        }
-        if(strpos($zilyuusilyo,'&?!Ds') !== false){
-            $zilyuusilyo = str_replace('&?!Ds','&lt;',$zilyuusilyo);
-        }
-        if(strpos($zilyuusilyo,'&?!sD') !== false){
-            $zilyuusilyo = str_replace('&?!sD','&gt;',$zilyuusilyo);
-        }
     }
 ?>
 <!--各入力事項表示-->

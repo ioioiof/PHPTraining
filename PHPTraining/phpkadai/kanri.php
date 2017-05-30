@@ -60,15 +60,7 @@
                 if(strpos($text[$j],'&?!comma') !== false){
                     $text[$j] = str_replace('&?!comma',',',$text[$j]);
                 }
-                //各項目に「&?!Ds」があれば「＜」に戻す
-                if(strpos($text[$j],'&?!Ds') !== false){
-                    $text[$j] = str_replace('&?!Ds','&lt;',$text[$j]);
-                }
-                //各項目に「&?!sD」があれば「＞」に戻す
-                if(strpos($text[$j],'&?!sD') !== false){
-                    $text[$j] = str_replace('&?!sD','&gt;',$text[$j]);
-                }
-
+                
                 if($j == count($text)-1){
                     //表示
                     echo "\t\t<td class='ww'>{$text[$j]}</td>\n";
