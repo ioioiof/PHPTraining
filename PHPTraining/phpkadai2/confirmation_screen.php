@@ -1,16 +1,21 @@
 <?php
     //セッションに保持した値を取り出す
     session_start();
-    $LName = $_SESSION['LName'];
-    $FName = $_SESSION['FName'];
-    $sex = $_SESSION['sex'];
-    $SAdd = $_SESSION['SAdd'];
-    $Pnum = $_SESSION['Pnum'];
-    $MAdd = $_SESSION['MAdd'];
-    $know = $_SESSION['know'];
-    $category = $_SESSION['category'];
-    $question = $_SESSION['question'];
-    //セッションは消さずそのまま
+    if(!isset($_SESSION['LName'])){
+        header("Location:index.php");
+    }else{
+        $LName = $_SESSION['LName'];
+        $FName = $_SESSION['FName'];
+        $sex = $_SESSION['sex'];
+        $SAdd = $_SESSION['SAdd'];
+        $Pnum = $_SESSION['Pnum'];
+        $MAdd = $_SESSION['MAdd'];
+        $know = $_SESSION['know'];
+        $category = $_SESSION['category'];
+        $question = $_SESSION['question'];
+        //セッションは消さずそのまま
+    }
+
 ?>
 <!--各入力事項表示-->
 <html>
