@@ -1,12 +1,25 @@
 <?php
     if(isset($_POST['question'])){
-        $ques = $_POST['question'];
-        if(strpos($ques,'<') !== false){
-            $ques = str_replace('<','&?!Ds',$ques);
-        }elseif(strpos($ques,'>') !== false){
-            $ques = str_replace('>','&?!sD',$ques);
+        $ques = htmlspecialchars($_POST["question"],ENT_NOQUOTES,"UTF-8");
+    }
+    if(isset($_POST['SAdd'])){
+        $SAdd = htmlspecialchars($_POST["SAdd"],ENT_NOQUOTES,"UTF-8");
+    }
+    if(isset($_POST['know_one']) && isset($_POST['know_two'])){
+        $kwow1 = htmlspecialchars($_POST["know_one"],ENT_NOQUOTES,"UTF-8");
+        $kwow2 = htmlspecialchars($_POST["know_two"],ENT_NOQUOTES,"UTF-8");
+        if(($kwow1 === "" || mb_ereg_match("\s",$kwow1)) && ($kwow2 === "" || mb_ereg_match("\s",$kwow2))){
+            $kwow = "";
+        }else if($kwow1 === "" || mb_ereg_match("\s",$kwow1)){
+            $kwow = $kwow2;
+        }else if($kwow2 === "" || mb_ereg_match("\s",$kwow2)){
+            $kwow = $kwow1;
+        }else{
+            $kwow = $kwow1." ".$kwow2;
         }
     }
+
+
 
     if(isset($_POST['LName']) || isset($_POST['FName'])){
         $LName = htmlspecialchars($_POST["LName"],ENT_NOQUOTES,"UTF-8");
@@ -28,7 +41,7 @@
                             al();
                         }else{
                             if(!ctype_digit($Pnum1) || !ctype_digit($Pnum2) || !ctype_digit($Pnum3)){
-                                echo '<script type="text/javascript">alert("電話番号は半角数字で入力してください。");history.go(-1);</script>';
+                                echo '<script type="text/javascript">alert("خطأ");history.go(-1);</script>';
                             }else{
                                 session_start();
                                 $_SESSION['FName'] = $FName;
@@ -37,9 +50,8 @@
                                 $Pnum = $Pnum1.$Pnum2;
                                 $_SESSION['Pnum'] =  $Pnum.$Pnum3;
                                 $_SESSION['MAdd'] = $MAdd1."@".$domain;
-                                $_SESSION['SAdd'] = $_POST['SAdd'];
-                                $_SESSION['know_one'] = $_POST['know_one'];
-                                $_SESSION['know_two' ]= $_POST['know_two'];
+                                $_SESSION['SAdd'] = $SAdd;
+                                $_SESSION['know'] = $kwow;
                                 $_SESSION['category'] = $_POST['category'];
                                 $_SESSION['question'] = $ques;
                                 header("Location: confirmation_screen.php");

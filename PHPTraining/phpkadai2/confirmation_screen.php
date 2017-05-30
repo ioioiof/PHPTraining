@@ -7,17 +7,9 @@
     $SAdd = $_SESSION['SAdd'];
     $Pnum = $_SESSION['Pnum'];
     $MAdd = $_SESSION['MAdd'];
-    $know_one = $_SESSION['know_one'];
-    $know_two = $_SESSION['know_two'];
+    $know = $_SESSION['know'];
     $category = $_SESSION['category'];
     $question = $_SESSION['question'];
-
-    if(strpos($question,'&?!Ds') !== false){
-        $question = str_replace('&?!Ds','&lt;',$question);
-    }
-    if(strpos($question,'&?!sD') !== false){
-        $question = str_replace('&?!sD','&gt;',$question);
-    }
     //セッションは消さずそのまま
 ?>
 <!--各入力事項表示-->
@@ -57,7 +49,7 @@
             </div>
             <div class="giylou">
                 <div class="retu1">أعرف</div>
-                <div class="retu2"><?= $know_one." ".$know_two ?></div>
+                <div class="retu2"><?= $know ?></div>
             </div>
             <div class="giylou">
                 <div class="retu1">الفئة</div>

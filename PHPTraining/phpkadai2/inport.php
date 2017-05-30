@@ -9,10 +9,9 @@
     $datas[3] = $_SESSION['SAdd'];
     $datas[4] = $_SESSION['Pnum'];
     $datas[5] = $_SESSION['MADD'];
-    $datas[6] = $_SESSION['know_one'];
-    $datas[7] = $_SESSION['know_two'];
-    $datas[8] = $_SESSION['category'];
-    $datas[9] = $_SESSION['question'];
+    $datas[6] = $_SESSION['know'];
+    $datas[7] = $_SESSION['category'];
+    $datas[8] = $_SESSION['question'];
 
     //各項目に「,」があるかどうかチェック
     for($i=0 ; $i < count($datas) ; $i++){
@@ -23,7 +22,7 @@
         //無ければそのまま
     }
     //内容の改行を<br>に変更
-    $datas[9] = str_replace("\r\n", '<br>', $datas[9]);
+    $datas[8] = str_replace("\r\n", '<br>', $datas[8]);
 
     //csvファイル名を変数に
     $file_path = "de.csv";

@@ -28,7 +28,6 @@
                 <li class='retuK'>رقم الهاتف</li>
                 <li class='retuK'>عنوان البريد الإلكتروني</li>
                 <li class='retuKa'>أعرف</li>
-                <li class='retuKa'></li>
                 <li class='retuK'>فئة</li>
                 <li class='retuK'>سؤال</li>
             </ul>";
@@ -38,12 +37,6 @@
             for($j = 0 ; $j < count($text) ; $j++){
                 if(strpos($text[$j],'&?!comma') !== false){
                     $text[$j] = str_replace('&?!comma',',',$text[$j]);
-                }
-                if(strpos($text[$j],'&?!Ds') !== false){
-                    $text[$j] = str_replace('&?!Ds','&lt;',$text[$j]);
-                }
-                if(strpos($text[$j],'&?!sD') !== false){
-                    $text[$j] = str_replace('&?!sD','&gt;',$text[$j]);
                 }
                 echo "\t\t<li class='retuK2'>{$text[$j]}</li>\n";
             }
