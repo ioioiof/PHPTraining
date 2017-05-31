@@ -11,36 +11,38 @@ if(isset($_SESSION["name"])){
  ?>
 <html>
 <head>
-
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>掲示板</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="js/jquery-live-preview.js"></script>
+    <link href="css/livepreview-demo.css" rel="stylesheet" type="text/css">
+    <script src="js/prototype.js"></script>
+    <script type="text/javascript">
+        new Ajax.PeriodicalUpdater(
+        	    "main",
+        	    "bbs.php",
+        	    {
+        	        "method": "get",
+        	        "parameters": "p=hoge",
+        	        frequency: 2, // 2秒ごとに実行
+        	        onSuccess: function(request) {
+        	            // 成功時の処理を記述
+        	            // alert('成功しました');
+        	        },
+                    onComplete: function(request) {
+        	            // 完了時の処理を記述
+        	            // alert('読み込みが完了しました');
+        	        },
+        	        onFailure: function(request) {
+        	            alert('読み込みに失敗しました');
+        	        },
+        	        onException: function (request) {
+        	            alert('読み込み中にエラーが発生しました');
+        	        }
+        	    }
+        	);
+        </script>
 </head>
-<script src="js/prototype.js"></script>
-<script type="text/javascript">
-new Ajax.PeriodicalUpdater(
-	    "main",
-	    "bbs.php",
-	    {
-	        "method": "get",
-	        "parameters": "p=hoge",
-	        frequency: 2, // 2秒ごとに実行
-	        onSuccess: function(request) {
-	            // 成功時の処理を記述
-	            // alert('成功しました');
-	        },
-            onComplete: function(request) {
-	            // 完了時の処理を記述
-	            // alert('読み込みが完了しました');
-	        },
-	        onFailure: function(request) {
-	            alert('読み込みに失敗しました');
-	        },
-	        onException: function (request) {
-	            alert('読み込み中にエラーが発生しました');
-	        }
-	    }
-	);
-</script>
 <body>
     <div id="wrapper">
         <div id="header"/>
@@ -108,6 +110,8 @@ new Ajax.PeriodicalUpdater(
         ?>
         </div>
         <div id="main"></div>
+        
     </div>
 </body>
+
 </html>

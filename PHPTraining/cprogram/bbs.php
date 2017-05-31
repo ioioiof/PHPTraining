@@ -18,8 +18,8 @@ if(($han = fopen($file_path,"r")) !== false){
         $text=explode(",",$out_dat[$i]);
         if(strpos($text[3],"http:") !== false || strpos($text[3],"https:") !== false){
             $pattern_http = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
-            $replace_http = '<a href="\1" target="_blank">\1</a>';
-            $text[3] = preg_replace( $pattern_http, $replace_http,$text[3]);
+            $replace_http = '<a href="\1" class="livepreview" target="_blank">リンク</a>';
+            $text[3] = preg_replace($pattern_http, $replace_http,$text[3]);
         }
         if(strpos($text[3],'&?!comma') !== false){
             $text[3] = str_replace('&?!comma',',',$text[3]);
@@ -42,6 +42,12 @@ if(($han = fopen($file_path,"r")) !== false){
     }
     //いじってるのここまで
 }
-echo"</table>\n";
+echo'</table>\n';
+echo '<script type="text/javascript">
+    $(document).ready(function() {
+        $(".livepreview").livePreview();
+    });
+</script>';
+
 fclose($han);
 ?>
