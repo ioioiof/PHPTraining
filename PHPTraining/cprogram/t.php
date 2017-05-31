@@ -24,15 +24,10 @@
                     }
                 }
                 if($han == 1){
-                    echo '<script>alert("同じID、もしくは同じ名前が登録されています。");</script>';
+                    echo '<script>alert("同じID、もしくは同じ名前が登録されてるねん。ちゃう名前にしてや。");</script>';
                 }else{
                     for($i=0;$i<count($data);$i++){
-                        if(strpos($data[$i],'<') !== false){
-                            $data[$i] = str_replace('<','&?!Ds',$data[$i]);
-                        }
-                        if(strpos($data[$i],'>') !== false){
-                            $data[$i] = str_replace('>','&?!sD',$data[$i]);
-                        }
+                        $data[$i] = htmlspecialchars($data[$i],ENT_NOQUOTES,"UTF-8");
                         if(strpos($data[$i],',') !== false){
                             $data[$i] = str_replace(',','&?!comma',$data[$i]);
                         }
@@ -52,7 +47,7 @@
         }
     }
     function al(){
-        echo '<script>alert("登録完了");location.href = "index.php";</script>';
+        echo '<script>alert("登録ゥ！");location.href = "index.php";</script>';
     }
 ?>
 <!DOCTYPE html>
@@ -65,7 +60,7 @@
         <form class="" action="" method="post">
             <ul>
                 <li>ID</li>
-                <li><input type="text" name="ID" maxlength="8" placeholder="8length" size="25"></li>
+                <li><input type="text" name="ID" maxlength="8" placeholder="8length" size="25" pattern="^[0-9A-Za-z]+$"></li>
             </ul>
             <ul>
                 <li>PASS</li>
